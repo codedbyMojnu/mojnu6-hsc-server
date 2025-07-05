@@ -1,0 +1,190 @@
+[{
+  "_id": {
+    "$oid": "6862a2cddb91ea33a26a58a3"
+  },
+  "question": "## ❓ Question\n\nWhat will be the **output** of this code?\n\n```js\nfor (var i = 0; i < 3; i++) {\n  setTimeout(() => {\n    console.log(i);\n  }, 1000);\n}\n```",
+  "options": [],
+  "hint": "> Think about **when** the `console.log(i)` actually runs. Does it run **during** the loop, or **after** the loop finishes?\n\n**Also remember:**\n\n* `var` is **function-scoped**, so there's only **one `i`** shared across all iterations.\n",
+  "answer": "3 3 3",
+  "explanation": "## 💬 Explanation\n\n* `var` is **function-scoped**, not block-scoped.\n* When the loop runs, it increases `i` from 0 to 3.\n* By the time the `setTimeout` callbacks run after 1 second, the loop has already finished, and `i` is now 3.\n* All callbacks refer to the **same `i`**, which is 3.\n\n---\n\n### 💡 How to fix it?\n\nUse `let` instead of `var`:\n\n```js\nfor (let i = 0; i < 3; i++) {\n  setTimeout(() => {\n    console.log(i);\n  }, 1000);\n}\n```\n\nThen output will be:\n\n```\n0\n1\n2\n```",
+  "category": "Advanced",
+  "createdAt": {
+    "$date": "2025-06-30T14:44:29.642Z"
+  },
+  "updatedAt": {
+    "$date": "2025-06-30T15:08:06.200Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68635eda58a505d420a45a2a"
+  },
+  "question": "What value will `console.log(a)` and `console.log(b)` print?\n```js\nfunction testScope() {\n  if (true) {\n    var a = 5;\n    let b = 10;\n  }\n  console.log(a); // What will this print?\n  console.log(b); // What will this print?\n}\ntestScope();\n```",
+  "options": [
+    "5 undefined",
+    "5 NaN",
+    "5 ReferenceError",
+    "5 null"
+  ],
+  "hint": "\n💡 **Hint:**\n\n* `var` is **function scoped**, not block scoped.\n* `let` is **block scoped**, available only inside `{}`.\n",
+  "answer": "5 ReferenceError",
+  "explanation": "**✅ Explanation:**\n\n* `var` is **function scoped**.\n  When you declare `var a = 5;`, `a` becomes accessible anywhere inside the function `testScope()`.\n\n* `let` is **block scoped**.\n  `b` is declared inside the `if (true) { ... }` block, so it only exists inside that block.\n\nWhen `console.log(b)` runs, it is **not defined** outside the block, so it throws an error:\n\n```\nReferenceError: b is not defined\n```\n\n### ⭐ **Summary of your answers**\n\n| Quiz  | Your Answer   | Correct? | Explanation                                                        |\n| ----- | ------------- | -------- | ------------------------------------------------------------------ |\n| 1 (a) | 5             | ✅        | Because `var` is function scoped.                                  |\n| 1 (b) | undefined     | ❌        | Actually causes ReferenceError since `let` is block scoped.        |",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T04:06:50.888Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-02T08:16:03.269Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6863666aeb3f63535f39b59a"
+  },
+  "question": "What will be the output of this code?\n\n```js\nconst user = {\n  name: \"Mojnu\"\n};\nuser.name = \"Miah\";\nconsole.log(user.name);\n```",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* `const` **prevents reassigning** the whole object, but **allows changing properties** inside the object.\n* You can't do `user = {}`, but you can update `user.name`.\n\n\n\n",
+  "answer": "Miah",
+  "explanation": "### 💬 Explanation\n\n* `const` makes the **variable binding constant**, not the **object content**.\n* You can still **modify properties** of a `const` object.\n* In this example, `user.name` is updated to `\"Miah\"`, so it prints:\n\n```\nMiah\n```",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T04:39:06.994Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-01T04:39:06.994Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68636bc9eb3f63535f39b643"
+  },
+  "question": "What are JavaScript’s **primitive data types**?",
+  "options": [
+    "String Number NaN",
+    "Boolen Number Int",
+    "Null Undefiened NaN",
+    "Undefiened Symbol BigInt"
+  ],
+  "hint": "### 💡 Hint\n\n* Primitive types are immutable, not objects.\n* Think: string, number, etc.\n\n✅ **Answer is one them in below. just type in the box:**\n\n* string and number\n* string, number, boolean, null, undefined, symbol, bigint\n* string, number, object\n\n\n\n",
+  "answer": "Undefiened Symbol BigInt",
+  "explanation": "### 💬 Explanation\n\n* JS has **7 primitive types**: string, number, boolean, null, undefined, symbol, and bigint.\n* Anything else (like arrays, functions, objects) is considered an **object**.",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T05:02:01.413Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-02T08:18:33.801Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68636dc0eb3f63535f39b696"
+  },
+  "question": "What does `typeof null` return in JavaScript?\n\n```js\nconsole.log(typeof null);\n```",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* Historically considered a bug in JS.\n* It doesn't return \"null\"!\n\n✅ **Answer like this:**\n\n* \"null\"\n* \"object\"\n* \"undefined\"",
+  "answer": "object",
+  "explanation": "### 💬 Explanation\n\n* `typeof null` returns `\"object\"`.\n* This is a **long-standing bug** in JavaScript kept for backward compatibility.\n* Even though `null` is a primitive, `typeof` incorrectly identifies it as an object.",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T05:10:24.109Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-02T08:18:58.771Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "686372c6eb3f63535f39b78a"
+  },
+  "question": "Rewrite this code using a **template literal**:\n\n```js\n'Hello ' + name + '!'\n```",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* Use backticks `` ` ``, and `${}` for inserting variables.\n\n✅ **Answer like this:**\n\n* `'Hello ${name}'`\n* `Hello + name + !`\n\n",
+  "answer": "`Hello ${name}!`",
+  "explanation": "### ✅ Answer\n\n`` `Hello ${name}!` ``\n\n### 💬 Explanation\n\n* Template literals use **backticks**.\n* Variables or expressions are included inside `${}`.\n* This makes string building cleaner and easier to read.",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T05:31:50.236Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-01T05:31:50.236Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6863747beb3f63535f39b7a9"
+  },
+  "question": "Can you include **expressions** (like `2 + 2`) inside `${}` in template literals?",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* You can put not only variables but also any **valid expression**.\n\n✅ **Answer like this:**\n\n* yes\n* no\n* Only simple variables\n\n",
+  "answer": "yes",
+  "explanation": "### ✅ Answer\n\nYes\n\n### 💬 Explanation\n\n* You can include **any JavaScript expression** inside `${}`.\n* Example:\n\n```js\nconsole.log(`2 + 2 = ${2 + 2}`); // Output: 2 + 2 = 4\n```",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T05:39:07.706Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-01T05:39:07.706Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6863761beb3f63535f39b7d1"
+  },
+  "question": "Rewrite this function using **arrow function** syntax:\n\n```js\nfunction add(a, b) {\n  return a + b;\n}\n```",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* Arrow function এ `function` কিওয়ার্ড থাকে না।\n* সরাসরি `=>` দিয়ে লেখা হয়।\n\n✅ **Answer like this:**\n\n* `(a, b) => a + b`\n\n\n",
+  "answer": "const add =(a, b)=> a + b;",
+  "explanation": "### 💬 Explanation\n\n* Arrow function এ ছোট function হলে সরাসরি `return` করা যায়।\n* যদি body {} দাও, তখন `return` লিখতে হবে।",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T05:46:03.614Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-02T07:13:20.214Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "68637740eb3f63535f39b7ec"
+  },
+  "question": "How does **`this`** behave differently in arrow functions?",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* Arrow function এর **`this`** binding হয় parent scope থেকে।\n* Regular function এর `this` dynamic হয়।\n\n✅ **Answer like this:**\n\n* Lexical\n* Dynamic\n* Block scoped\n\n",
+  "answer": "Lexical",
+  "explanation": "### ✅ Answer\n\nLexical\n\n### 💬 Explanation\n\n* Arrow function এর **`this`** হলো **lexical**, মানে যেখানে লেখা হয়েছে সেই outer scope থেকে `this` নেয়।\n* Regular function এ `this` runtime এ ঠিক হয় (যেমন object এর মধ্যে call করলে সেই object হয়)।",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T05:50:56.450Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-01T05:50:56.450Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6863821beb3f63535f39b81a"
+  },
+  "question": "What will be the output?\n\n```js\nconst person = {\n  name: \"Mojnu\",\n  greet: function () {\n    setTimeout(() => {\n      console.log(`Hello, ${this.name}`);\n    }, 1000);\n  }\n};\n\nperson.greet();\n```",
+  "options": [],
+  "hint": "### 💡 Hint\n\n* Arrow function এর `this` bind হয় outer `greet` function থেকে।\n* Regular function দিলে `this` undefined হত বা window/global হত।\n\n✅ **Answer like this:**\n\n* Hello, undefined\n* Error\n\n",
+  "answer": "Hello, Mojnu",
+  "explanation": "### ✅ Answer\n\nHello, Mojnu\n\n### 💬 Explanation\n\n* এখানে `setTimeout` এর ভিতরে arrow function ব্যবহার করা হয়েছে।\n* তাই `this` কে outer `greet` method থেকে নেয়, যেটি হলো `person` object।\n* তাই output: **Hello, Mojnu**",
+  "category": "General",
+  "createdAt": {
+    "$date": "2025-07-01T06:37:15.408Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-02T08:20:05.221Z"
+  },
+  "__v": 0
+}]

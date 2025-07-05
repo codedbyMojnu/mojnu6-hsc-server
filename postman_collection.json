@@ -1,0 +1,286 @@
+{
+    "info": {
+      "name": "Full Server API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Auth",
+        "item": [
+          {
+            "name": "Register",
+            "request": {
+              "method": "POST",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"user1\",\n  \"password\": \"pass123\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/auth/register",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "auth", "register"]
+              }
+            }
+          },
+          {
+            "name": "Login",
+            "request": {
+              "method": "POST",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"user1\",\n  \"password\": \"pass123\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/auth/login",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "auth", "login"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Levels",
+        "item": [
+          {
+            "name": "Get All Levels",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:5000/api/levels/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "levels", ""]
+              }
+            }
+          },
+          {
+            "name": "Add Level (Admin)",
+            "request": {
+              "method": "POST",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Level 1\",\n  \"description\": \"First level\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/levels/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "levels", ""]
+              }
+            }
+          },
+          {
+            "name": "Update Level (Admin)",
+            "request": {
+              "method": "PUT",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"name\": \"Updated Level\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/levels/levelId",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "levels", "levelId"]
+              }
+            }
+          },
+          {
+            "name": "Delete Level (Admin)",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:5000/api/levels/levelId",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "levels", "levelId"]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Profiles",
+        "item": [
+          {
+            "name": "Create Profile",
+            "request": {
+              "method": "POST",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"user1\",\n  \"bio\": \"Hello!\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/profile/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "profile", ""]
+              }
+            }
+          },
+          {
+            "name": "Get Profile by Username",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:5000/api/profile/user1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "profile", "user1"]
+              }
+            }
+          },
+          {
+            "name": "Replace Profile by Username",
+            "request": {
+              "method": "PUT",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"bio\": \"Updated bio\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/profile/user1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "profile", "user1"]
+              }
+            }
+          },
+          {
+            "name": "Update Profile by Username",
+            "request": {
+              "method": "PATCH",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"bio\": \"Patched bio\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/profile/user1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "profile", "user1"]
+              }
+            }
+          },
+          {
+            "name": "Delete Profile by Username (Admin)",
+            "request": {
+              "method": "DELETE",
+              "url": {
+                "raw": "http://localhost:5000/api/profile/user1",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "profile", "user1"]
+              }
+            }
+          },
+          {
+            "name": "Get All Profiles",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:5000/api/profile/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "profile", ""]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Transactions",
+        "item": [
+          {
+            "name": "Create Transaction",
+            "request": {
+              "method": "POST",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"username\": \"user1\",\n  \"transactionId\": \"txn001\",\n  \"selectedPackage\": \"basic\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/transactions/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "transactions", ""]
+              }
+            }
+          },
+          {
+            "name": "Get All Transactions",
+            "request": {
+              "method": "GET",
+              "url": {
+                "raw": "http://localhost:5000/api/transactions/",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "transactions", ""]
+              }
+            }
+          },
+          {
+            "name": "Update Transaction by Id (PUT)",
+            "request": {
+              "method": "PUT",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"approveStatus\": \"approved\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/transactions/transactionId123",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "transactions", "transactionId123"]
+              }
+            }
+          },
+          {
+            "name": "Update Transaction by Id (PATCH)",
+            "request": {
+              "method": "PATCH",
+              "header": [{"key": "Content-Type", "value": "application/json"}],
+              "body": {
+                "mode": "raw",
+                "raw": "{\n  \"approveStatus\": \"approved\"\n}"
+              },
+              "url": {
+                "raw": "http://localhost:5000/api/transactions/transactionId123",
+                "protocol": "http",
+                "host": ["localhost"],
+                "port": "5000",
+                "path": ["api", "transactions", "transactionId123"]
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
