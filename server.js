@@ -21,7 +21,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
-        origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175", "http://localhost:5176", "http://localhost:5177"], // Multiple frontend URLs
+        origin: ["http://localhost:5173", "http://localhost:5174", "https://mojnu6-hsc.vercel.app"], // Multiple frontend URLs
         methods: ["GET", "POST"]
     }
 });
